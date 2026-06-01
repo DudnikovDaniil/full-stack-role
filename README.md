@@ -71,9 +71,3 @@ full-stack-role/
 └── .gitignore
 ```
 
----
-
-##  Автор
-
-**DudnikovDaniil**
-- GitHub: [@DudnikovDaniil](https://github.com/DudnikovDaniil)
