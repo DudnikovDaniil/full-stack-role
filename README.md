@@ -11,6 +11,7 @@
 
 | Репозиторий | Ссылка |
 |-------------|--------|
+| **Главный отчёт (ДЗ-5)** | https://github.com/DudnikovDaniil/Homework-for-Lesson-5-Testing-roles |
 | **vector-role** | https://github.com/DudnikovDaniil/vector-role |
 | **lighthouse-role** | https://github.com/DudnikovDaniil/lighthouse-role |
 | **full-stack-role** | https://github.com/DudnikovDaniil/full-stack-role (текущий) |
