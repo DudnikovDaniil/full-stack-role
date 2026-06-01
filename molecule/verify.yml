@@ -1,0 +1,31 @@
+---
+- name: Verify Full Stack
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Start nginx manually
+      raw: nginx
+      ignore_errors: yes
+
+    - name: Check ClickHouse port 8123
+      uri:
+        url: http://localhost:8123
+        status_code: 200
+      register: clickhouse_check
+      failed_when: clickhouse_check.status != 200
+
+    - name: Check Vector binary exists
+      raw: test -f /usr/bin/vector
+      register: vector_check
+      failed_when: vector_check.rc != 0
+
+    - name: Check Lighthouse page
+      uri:
+        url: http://localhost:8080
+        status_code: 200
+      register: lighthouse_check
+      failed_when: lighthouse_check.status != 200
+
+    - name: Integration test passed
+      debug:
+        msg: " Full Stack Integration Test PASSED! ClickHouse + Vector + Lighthouse"

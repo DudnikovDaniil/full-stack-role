@@ -1,0 +1,20 @@
+---
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: ubuntu:22.04
+    command: sleep infinity
+provisioner:
+  name: ansible
+  config_options:
+    defaults:
+      remote_tmp: /tmp/.ansible/tmp
+      local_tmp: /tmp/.ansible/tmp
+  playbooks:
+    create: ../default/create.yml
+    destroy: ../default/destroy.yml
+    converge: converge.yml
+    verify: verify.yml
+verifier:
+  name: ansible

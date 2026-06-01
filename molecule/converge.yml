@@ -1,0 +1,25 @@
+---
+- name: Converge - Full Stack Integration
+  hosts: all
+  gather_facts: false
+  become: false
+  pre_tasks:
+    - name: Install python for Ansible
+      raw: apt update && apt install -y python3
+      changed_when: false
+    - name: Gather facts
+      setup:
+  tasks:
+    - name: Install ClickHouse
+      include_role:
+        name: /home/daniil-dudnikov/ansible-hw/roles/clickhouse
+    - name: Install Vector
+      include_role:
+        name: /home/daniil-dudnikov/ansible-hw/roles/vector-role
+      vars:
+        skip_systemd: true
+    - name: Install Lighthouse
+      include_role:
+        name: /home/daniil-dudnikov/ansible-hw/roles/lighthouse-role
+      vars:
+        skip_systemd: true
